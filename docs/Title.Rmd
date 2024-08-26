@@ -1,0 +1,26 @@
+---
+title: "Brazilian Beef and Soy Production Evolution (2002-2022)"
+author: "Rafael da Costa"
+date: "2024-08-26"
+output: github_document
+---
+
+```{r, error=FALSE, warning=FALSE, message=FALSE, echo = FALSE}
+##some settings
+knitr::opts_chunk$set(error=FALSE, warning=FALSE, message=FALSE, echo = FALSE)
+```
+
+
+```{r}
+##Loading packages used
+library(tidyverse) 
+library(lubridate) 
+library(ggthemes) 
+library(viridis) 
+library(RColorBrewer) 
+library(sf) 
+library(geobr) 
+library(magick)
+```
+
+Data used in the research briefing **The Brazilian Electric System Green Transition seen from a Dependency perspective** will be available here from 28-08-2024, 1pm (BST). This is because 26-08-2024 is the author's birthday!
