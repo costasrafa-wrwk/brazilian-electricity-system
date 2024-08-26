@@ -2,7 +2,7 @@
 title: "Brazilian Beef and Soy Production Evolution (2002-2022)"
 author: "Rafael da Costa"
 date: "2024-08-26"
-output: github_document
+output: html_document
 ---
 
 ```{r, error=FALSE, warning=FALSE, message=FALSE, echo = FALSE}
