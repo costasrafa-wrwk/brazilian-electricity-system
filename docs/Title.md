@@ -1,4 +1,5 @@
-Brazilian Beef and Soy Production Evolution (2002-2022)
+The Brazilian Electric System Green Transition seen from a Dependency
+perspective
 ================
 Rafael da Costa
 2024-08-26
