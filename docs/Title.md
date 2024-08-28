@@ -11,8 +11,8 @@ energy transitions and global disruption: The (un)just transition to Net
 Zero**, to be held at the University of Manchester, UK on 11-13
 September 2024.
 
-This version contains only raw datasets used. An upted version will
-present calculations used in the paper.
+This version contains only raw datasets. An updated version will present
+calculations used in the paper.
 
 Author’s contact: <Rafael.Da-Silva-Da-costa@warwick.ac.uk>
 
