@@ -1,0 +1,51 @@
+SIGLA_USINA,n, owner, owner_info
+SERRA DO MEL I,17658.991805, Voltalia-Mulliez Family, https://voltalia.gcs-web.com/investor-relations/shareholders
+Sol do Sertão VIII,17217.502277, Essentia Energia-Grupo Pátria, https://ir.patria.com/corporate-governance#committee-composition
+Sol do Sertão XIII,13360.341119, Essentia Energia-Grupo Pátria, https://ir.patria.com/corporate-governance#committee-composition
+SERRA DO MEL II,13025.032463, Voltalia-Mulliez Family, https://voltalia.gcs-web.com/investor-relations/shareholders
+SAO GONCALO 2,9740.467832, Enel, https://www.enelgreenpower.com/pt/nossos-projetos/highlights/parque-solar-sao-goncalo
+UFV HELIO VALGAS I,9430.466584, Comerc Energia-Apollo Energia, https://www.perfinapolloenergia.com/estrutura/
+UFV HELIO VALGAS 2,9369.584388, Comerc Energia-Apollo Energia, https://www.perfinapolloenergia.com/estrutura/
+UFV HELIO VALGAS 4,9307.766654000001, Comerc Energia-Apollo Energia, https://www.perfinapolloenergia.com/estrutura/
+Sol do Sertão XII,9296.358887, Essentia Energia-Grupo Pátria, https://ir.patria.com/corporate-governance#committee-composition
+UFV HELIO VALGAS 3,9255.696345, Comerc Energia-Apollo Energia, https://www.perfinapolloenergia.com/estrutura/
+UFV HELIO VALGAS 5,9243.475988, Comerc Energia-Apollo Energia, https://www.perfinapolloenergia.com/estrutura/
+UFV HELIO VALGAS 7,9080.575721, Comerc Energia-Apollo Energia, https://www.perfinapolloenergia.com/estrutura/
+UFV HELIO VALGAS 6,9054.907073, Comerc Energia-Apollo Energia, https://www.perfinapolloenergia.com/estrutura/
+SDM UFV IV,9021.412673,,
+Terra do Sol VII,8932.898036, Essentia Energia-Grupo Pátria, https://ir.patria.com/corporate-governance#committee-composition
+UFV HELIO VALGAS 9,8917.864842, Comerc Energia-Apollo Energia, https://www.perfinapolloenergia.com/estrutura/
+LUZIA 3,8904.817642, Iberdrola, https://www.iberdrola.com/quem-somos/nossa-atividade/energia-solar-fotovoltaica/usina-fotovoltaica-luzia
+UFV HELIO VALGAS 10,8876.118203, Comerc Energia-Apollo Energia, https://www.perfinapolloenergia.com/estrutura/
+UFV HELIO VALGAS 8,8868.136788, Comerc Energia-Apollo Energia, https://www.perfinapolloenergia.com/estrutura/
+LUZIA 2,8705.595814, Iberdrola, https://www.iberdrola.com/quem-somos/nossa-atividade/energia-solar-fotovoltaica/usina-fotovoltaica-luzia
+Terra do Sol XI,8434.356253, Essentia Energia-Grupo Pátria, https://ir.patria.com/corporate-governance#committee-composition
+SAO GONCALO 4,8386.770234, Enel, https://www.enelgreenpower.com/pt/nossos-projetos/highlights/parque-solar-sao-goncalo
+SAO GONCALO 3,8350.930565, Enel, https://www.enelgreenpower.com/pt/nossos-projetos/highlights/parque-solar-sao-goncalo
+CASTILHO 5,8261.735937, Comerc Energia-Apollo Energia, https://www.perfinapolloenergia.com/estrutura/
+Belmonte 2 4 (HIPER),8243.710114, Solatio, https://megawhat.energy/economia-e-politica/empresas/solatio-garante-r-80-bi-para-construir-projeto-de-hidrogenio-verde-no-piaui/
+SDM UFV III,8194.809633,,
+EGP ARINOS 11,8137.488517, Enel, https://www.enelgreenpower.com/pt/nossos-projetos/highlights/parque-solar-sao-goncalo
+Central Gera Boa S V,8090.610079,,
+Belmonte 2 2 (HIPER),8056.378199, Solatio, https://megawhat.energy/economia-e-politica/empresas/solatio-garante-r-80-bi-para-construir-projeto-de-hidrogenio-verde-no-piaui/
+SAO GONCALO 1,8049.928725, Enel, https://www.enelgreenpower.com/pt/nossos-projetos/highlights/parque-solar-sao-goncalo
+CASTILHO 1,8010.094474, Comerc Energia-Apollo Energia, https://www.perfinapolloenergia.com/estrutura/
+JANAÚBA 10,7930.427706, Elera Renováveis-Brookfield Renewable Partners, https://www.elera.com/institucional/
+Belmonte 2 1,7918.279362, Solatio, https://megawhat.energy/economia-e-politica/empresas/solatio-garante-r-80-bi-para-construir-projeto-de-hidrogenio-verde-no-piaui/
+JANAÚBA 5,7911.810503, Elera Renováveis-Brookfield Renewable Partners, https://www.elera.com/institucional/
+UFV LAR DO SOL 3,7910.913174, Atlas Renewable Energy-GIP, https://pt.atlasrenewableenergy.com/empresa/
+JANAÚBA 1,7892.157321, Elera Renováveis-Brookfield Renewable Partners, https://www.elera.com/institucional/
+CASTILHO 3,7819.425001, Comerc Energia-Apollo Energia, https://www.perfinapolloenergia.com/estrutura/
+JANAÚBA 8,7802.937016, Elera Renováveis-Brookfield Renewable Partners, https://www.elera.com/institucional/
+EGP ARINOS 12,7792.918021, Enel, https://www.enelgreenpower.com/pt/nossos-projetos/highlights/parque-solar-sao-goncalo
+CASTILHO 4,7791.902015, Comerc Energia-Apollo Energia, https://www.perfinapolloenergia.com/estrutura/
+BOM NOME 1-6,7788.407826, Comerc Energia-Apollo Energia, https://www.perfinapolloenergia.com/estrutura/
+SAO GONCALO 21,7781.490226, Enel, https://www.enelgreenpower.com/pt/nossos-projetos/highlights/parque-solar-sao-goncalo
+SAO GONCALO 22,7779.757622, Enel, https://www.enelgreenpower.com/pt/nossos-projetos/highlights/parque-solar-sao-goncalo
+Santa Luzia IV,7773.178089, Rio Alto Energias Renováveis, https://ri.gruporioalto.com.br/governanca-corporativa/conselho-diretoria-e-comites/
+UFV JUAZEIRO V,7758.910012, Atlas Renewable Energy-GIP, https://www.projetojacaranda.com/
+UFV LAR DO SOL 5,7742.45762, Atlas Renewable Energy-GIP, https://pt.atlasrenewableenergy.com/empresa/
+UFV Araxá 1,7736.440556, Soltec, https://soltec.com/pt/acionistas-e-investidores/conselho-de-administracao/
+UFV JUAZEIRO VII,7675.030517, Atlas Renewable Energy-GIP, https://www.projetojacaranda.com/
+Jaíba SE1,7667.072479, Auren Energia-Votorantim S.A., https://ri.aurenenergia.com.br/esg/estrutura-acionaria/
+JANAÚBA 6,7662.815908, Elera Renováveis-Brookfield Renewable Partners, https://www.elera.com/institucional/

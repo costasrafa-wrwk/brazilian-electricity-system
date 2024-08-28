@@ -1,26 +1,394 @@
 ---
-title: "The Brazilian Electric System Green Transition seen from a Dependency perspective"
+title: "Annex - The Brazilian Electric System Green Transition seen from a Dependency perspective v1.0"
 author: "Rafael da Costa"
-date: "2024-08-26"
-output: github_document
+date: "2024-08-28"
+output: 
+  github_document:
+    pandoc_args: [
+      "+RTS", "-K64m",
+      "-RTS"
+    ]
+    df_print: paged
 ---
 
 ```{r, error=FALSE, warning=FALSE, message=FALSE, echo = FALSE}
 ##some settings
 knitr::opts_chunk$set(error=FALSE, warning=FALSE, message=FALSE, echo = FALSE)
+
+#setting some general options
+options(timeout = 6000, digits=12)
 ```
 
 
 ```{r}
 ##Loading packages used
-library(tidyverse) 
-library(lubridate) 
-library(ggthemes) 
-library(viridis) 
-library(RColorBrewer) 
-library(sf) 
-library(geobr) 
-library(magick)
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
+library(RColorBrewer)
+library(scales)
+library(sf)
+library(htmltools)
+library(geobr)
+library(ribge)
+library(xlsx)
+library(lubridate)
+library(deflateBR)
+
+#setting ggplot theme for plots
+theme_set(theme_bw())
 ```
 
-Data used in the research briefing **The Brazilian Electric System Green Transition seen from a Dependency perspective** will be available here from 28-08-2024, 1pm (BST). This is because 26-08-2024 is the author's birthday!
+This Research Briefing Annex contains all data used in the text **The Brazilian Electric System Green Transition seen from a Dependency perspective** presented to the organisation of the **Workshop on Green energy transitions and global disruption: The (un)just transition to Net Zero**, to be held at the University of Manchester, UK on 11-13 September 2024.
+
+This version contains only raw datasets used. An upted version will present calculations used in the paper.
+
+Author's contact: [Rafael.Da-Silva-Da-costa@warwick.ac.uk](mailto:Rafael.Da-Silva-Da-costa@warwick.ac.uk)
+
+**Warning**: *To access Brazilian federal government open data links provided here you must first setup a VPN with a Brazilian IP mask*.
+
+# Data on electricity distribution per Brazilian municipalities 
+
+## Table 1 - GDP, Total Population and Energy Distribution Company per Municipality:
+
+* *This dataset contains more observations (6985) than there are Brazilian municipalities (5572)*. Since more than one energy distribution company serves certain municipalities, they generate more than one observation.
+
+* *The intention was to identify the energy distribution's company controller to highlight the concentration existing in the Brazilian Electricity market*.
+
+```{r, include=FALSE}
+
+#datasets dowloaded manually from https://www2.aneel.gov.br/relatoriosrig/(S(agspt4uhp3emkg5iscnpudes))/relatorio.aspx?folder=sfe&report=DistribuidoradecadaMunicipio 
+distributors_data <- c(list.files(path = "./csv_distribuidoras_mun"))
+
+distributors_mun <- list()
+
+for (i in seq_along(distributors_data)) {
+
+distributors_mun[[i]] <-  read.delim(paste("./csv_distribuidoras_mun/",                                                       distributors_data[i], sep = ""), 
+                                     sep = ",", 
+                                     fill = TRUE, 
+                                     encoding = "UTF-8", 
+                                     header = TRUE,
+                                     skip = 3) %>% 
+                          mutate(Distribution_Company=distributors_data[i] %>% 
+                                 str_remove(".csv") %>% 
+                                 str_replace("_", " ") %>% 
+                                 str_to_upper())
+}
+
+rm(distributors_data, i)
+
+distributors_mun <- bind_rows(distributors_mun)
+
+mun_data <- read_municipality(year = 2022) %>% 
+              select(c(code_muni, name_muni, abbrev_state, name_region)) %>% 
+              rename(NomeMunicipio=name_muni,
+                     SiglaEstado=abbrev_state,
+                     cod_municipio=code_muni)
+
+file.remove("pop_estimativa_2022.xls")
+
+distributors_mun <- distributors_mun %>% 
+  left_join(mun_data, by=c("NomeMunicipio", "SiglaEstado")) %>% 
+  mutate(distribution_controller=case_when(
+    Distribution_Company=="COELBA"|Distribution_Company=="CELPE"|Distribution_Company=="COSERN"|
+    Distribution_Company=="ELEKTRO"|Distribution_Company=="CEB DIS"~"Iberdrola",
+    Distribution_Company=="ELETROPAULO"|Distribution_Company=="ENEL CE"|Distribution_Company=="ENEL RJ"~"Enel",
+    Distribution_Company=="CPFL JAGUARI"|Distribution_Company=="CPFL LESTE_PAULISTA"|
+    Distribution_Company=="CPFL MOCOCA"|Distribution_Company=="CPFL PAULISTA"|
+    Distribution_Company=="CPFL PIRATININGA"|Distribution_Company=="CPFL SANTA_CRUZ"|
+    Distribution_Company=="CPFL SUL_PAULISTA"~"State Grid",
+    Distribution_Company=="CELESC"| Distribution_Company=="EDP SP"| Distribution_Company== "EDP ES"~"EDP",
+    Distribution_Company=="EMR"|Distribution_Company=="ESE"|Distribution_Company=="EPB"|Distribution_Company=="EAC"|
+    Distribution_Company=="ETO"|Distribution_Company=="ESS"|Distribution_Company=="EMS"|Distribution_Company=="EMT"~"Energisa",
+    Distribution_Company=="EQUATORIAL AL"|Distribution_Company=="EQUATORIAL GO"|Distribution_Company=="EQUATORIAL MA"|Distribution_Company=="EQUATORIAL PA"|Distribution_Company=="EQUATORIAL PI"~"Equatorial",
+    Distribution_Company=="CEMIG D"~"State of Minas Gerais",
+    Distribution_Company=="COPEL DIS"~"State of Paraná",
+    TRUE~"Unidentified"
+  ))
+```
+
+
+```{r, include=FALSE}
+# using ribge package to load municipalities' population data
+pop_mun <- populacao_municipios(2022) %>% 
+            mutate(mun_code=as.numeric(cod_municipio))
+```
+
+
+```{r, include=FALSE}
+#the original .xlsx file was not parsing with R packages, then I had to manually convert it to .csv
+
+gdp_mun <- read.delim("PIB dos Municipios - base de dados 2010-2021.csv", sep = ";",
+                      encoding = "UTF-8")%>% 
+  filter(Ano==2021)%>% 
+  select(c(Código.do.Município,
+           Produto.Interno.Bruto...a.preços.correntes..R..1.000.,
+           Nome.do.Município)) %>% 
+  rename(mun_code=Código.do.Município,
+         GDP=Produto.Interno.Bruto...a.preços.correntes..R..1.000.,
+         Municipality=Nome.do.Município) %>% 
+  mutate(GDP=str_trim(GDP),
+         GDP=as.numeric(str_remove_all(GDP, fixed("."))))
+```
+
+
+```{r}
+distributors_mun <- distributors_mun %>% 
+  rename(mun_code=cod_municipio,
+         State=SiglaEstado,
+         Company_Controller=distribution_controller) %>% 
+  left_join(pop_mun, by="mun_code") %>% 
+  left_join(gdp_mun, by="mun_code")%>%
+  rename(Population=populacao) %>% 
+  select(c(Municipality,
+           mun_code,
+           State,
+           Distribution_Company,
+           Company_Controller,
+           Population,
+           GDP))
+```
+
+**Complete dataset**:
+```{r}
+distributors_mun
+```
+**Sources**: Instituto Brasileiro de Geografia e Estatística - IBGE, Municipalities Gross Domestic Product, retrieved 28 August 2024 from [https://ftp.ibge.gov.br/Pib_Municipios/2021/base/base_de_dados_2010_2021_xlsx.zip](https://ftp.ibge.gov.br/Pib_Municipios/2021/base/base_de_dados_2010_2021_xlsx.zip); Agência Nacional de Energia Elétrica - Aneel, Reports Portal, retrieved 28 August 2024 from [https://www2.aneel.gov.br/relatoriosrig/(S(gcwd12tr2undw15hdx3vkbjv))/relatorio.aspx?folder=sfe&report=DistribuidoradecadaMunicipio](https://www2.aneel.gov.br/relatoriosrig/(S(gcwd12tr2undw15hdx3vkbjv))/relatorio.aspx?folder=sfe&report=DistribuidoradecadaMunicipio)
+
+### Table 2 - Brazilian Energy Generation Plants
+
+```{r, include=FALSE}
+#fetching latest energy generation plants Data
+url <- "https://pda-download.ccee.org.br/7gQCl3h9Ru6ORLv5SyddeA/content"
+
+destfile <- "geracao_horaria_usina_202406.csv.gz"
+
+download.file(url, destfile, mode = "wb")
+
+plant_generation_data <- read.delim(gzfile("geracao_horaria_usina_202406.csv.gz"),
+                  sep = ";", encoding = "UTF-8", 
+                 header = TRUE, fill = TRUE) %>% 
+                select(DATA, SIGLA_USINA,SUBMERCADO,
+                       FONTE_PRIMARIA, GERACAO_CENTRO_GRAVIDADE) %>% 
+                rename(Reference_Date=DATA, Plant_Name=SIGLA_USINA,
+                       BR_Region=SUBMERCADO,
+                       Type_Energy_Source=FONTE_PRIMARIA,
+                       MW_Generated_Monthly=GERACAO_CENTRO_GRAVIDADE) %>% 
+                mutate(Reference_Date=dmy(Reference_Date),
+                       BR_Region=case_when(
+                         BR_Region=="SUDESTE"~"Southeast",
+                         BR_Region=="NORDESTE"~"Northeast",
+                         BR_Region=="SUL"~"South",
+                         BR_Region=="NORTE"~"North"
+                       ),
+                       Type_Energy_Source=case_when(
+                         Type_Energy_Source=="Hidráulica"|
+                         Type_Energy_Source=="Hidráulica CGH"|
+                         Type_Energy_Source=="Hidráulica PCH"~"Hydro",
+                         Type_Energy_Source=="Térmica bi-Combustível - gás/óleo"~"Oil and Gas",
+                         Type_Energy_Source=="Térmica a Óleo"~"Oil",
+                         Type_Energy_Source=="Térmica a Carvão Mineral"~"Coal",
+                         Type_Energy_Source=="Térmica a Gás"|
+                         Type_Energy_Source=="Térmica a GNL"~"Gas", 
+                         Type_Energy_Source=="Térmica a Biomassa"~"Biomass",
+                         Type_Energy_Source=="Térmica Nuclear"~"Nuclear",
+                         Type_Energy_Source=="Térmica - Outros"|
+                         Type_Energy_Source=="Térmica Reação Exotérmica"~"Others",
+                         Type_Energy_Source=="Eólica"~"Wind",
+                         Type_Energy_Source=="Solar Fotovoltaica"~"Solar"
+                       ))
+
+file.remove("geracao_horaria_usina_202406.csv.gz")
+```
+
+**Complete dataset**:
+```{r}
+plant_generation_data
+```
+**Sources**: Câmara de Comercialização de Energia Elétrica - CCEE, retrieved 28 August 2024 from [https://pda-download.ccee.org.br/7gQCl3h9Ru6ORLv5SyddeA/content](https://pda-download.ccee.org.br/7gQCl3h9Ru6ORLv5SyddeA/content)
+
+*After identifying the 90th percentile of energy generation plants, the research looked for the companies owning them*. The result of this investigation is as follows:
+```{r}
+top_hydro <- read.delim("top_30_hydro_generators.txt", sep = ";", fill = TRUE) %>% 
+              select(-owner_info) %>% 
+              mutate(energy="hydro")
+
+top_solar <- read.delim("top_50_solar_generators.txt", sep = ",", fill = TRUE) %>% 
+              select(-owner_info) %>% 
+              mutate(energy="solar")
+
+top_wind <- read.delim("top_100_wind_generators.txt", sep = ",", fill = TRUE) %>% 
+              select(-owner_info) %>% 
+              mutate(energy="wind")
+
+top_generators <- rbind(top_hydro, top_solar, top_wind)
+
+top_generators %>% 
+  rename(MW_Generated_Monthly=n)
+```
+
+
+## Table 3 - Brazilian Energy Transmission Auctions Results
+
+```{r, include=FALSE}
+url <- "https://dadosabertos.aneel.gov.br/dataset/593537c6-9e0e-4ed9-817a-2c5d5de05147/resource/453cb742-8089-4c16-aaf2-42088b5553dc/download/resultado-leiloes-transmissao.csv"
+
+destfile <- "resultado-leiloes-transmissao.csv"
+
+download.file(url, destfile, mode = "wb")
+
+deflator_reference <- "12/2023"
+
+outcome_transmission_auctions <- read.delim("resultado-leiloes-transmissao.csv", encoding = "UTF-8", sep = ";") %>% 
+  mutate(VlrInvestimentoPrevisto=as.numeric(gsub(",",".", VlrInvestimentoPrevisto)),
+         DatLeilao=dmy(DatLeilao),
+         VlrInvestimentoPrevisto=deflate(VlrInvestimentoPrevisto,DatLeilao,
+                                         deflator_reference,"ipca")) %>% 
+         rename(Auction_Year=AnoLeilao,
+                Auction_Date=DatLeilao,
+                Auction_Number=NumLeilao,
+                Predicted_Investment=VlrInvestimentoPrevisto) %>% 
+          select(c(Auction_Year, Auction_Date,
+                   Auction_Number,Predicted_Investment))
+
+file.remove("resultado-leiloes-transmissao.csv")
+```
+
+*All monetary values in the variable* **Predicted_Investment** *are the investment's real values in Brazilian Reais (BRL) at December/2023, adjusted by inflation*. 
+
+**Complete dataset**:
+```{r}
+outcome_transmission_auctions
+```
+Source: Electric Energy National Agency - Aneel, Reports Portal, retrieved 28 August 2024 from [https://dadosabertos.aneel.gov.br/dataset/593537c6-9e0e-4ed9-817a-2c5d5de05147/resource/453cb742-8089-4c16-aaf2-42088b5553dc/download/resultado-leiloes-transmissao.csv](https://dadosabertos.aneel.gov.br/dataset/593537c6-9e0e-4ed9-817a-2c5d5de05147/resource/453cb742-8089-4c16-aaf2-42088b5553dc/download/resultado-leiloes-transmissao.csv)
+
+## Table 4 - Evolution of Electricity Installed Capacity per Energy Type
+
+
+```{r, include=FALSE}
+url <- "https://dadosabertos.aneel.gov.br/dataset/4bf07812-e421-48f3-8e48-eec0040764ba/resource/3b3eb013-8831-4ca9-a582-01010ff4e0fb/download/acrescimo-anual-potencia-instalada.csv"
+
+destfile <- "acrescimo-anual-potencia-instalada.csv"
+
+download.file(url, destfile, mode = "wb")
+
+installed_MW_growth <- read.delim("acrescimo-anual-potencia-instalada.csv", sep = ";") %>% 
+  mutate(MdaPotenciaMW=as.numeric(gsub(",", ".", MdaPotenciaMW)),
+         growth_rate=round((MdaPotenciaMW-lag(MdaPotenciaMW))/lag(MdaPotenciaMW)*100, 2)) %>% 
+  rename(Year=AnoReferencia,
+         MW_Installed=MdaPotenciaMW) %>% 
+  select(Year, MW_Installed, growth_rate)
+
+file.remove("acrescimo-anual-potencia-instalada.csv")
+```
+
+```{r}
+installed_MW_growth
+```
+Source: Empresa de Pesquisa Energética - EPE, Balanço Energético Nacional 2024, retrieved 28 August 2024 from [https://dadosabertos.aneel.gov.br/dataset/4bf07812-e421-48f3-8e48-eec0040764ba/resource/3b3eb013-8831-4ca9-a582-01010ff4e0fb/download/acrescimo-anual-potencia-instalada.csv](https://dadosabertos.aneel.gov.br/dataset/4bf07812-e421-48f3-8e48-eec0040764ba/resource/3b3eb013-8831-4ca9-a582-01010ff4e0fb/download/acrescimo-anual-potencia-instalada.csv)
+
+## Table 5 - Brazilian Wind Tech Imports
+
+*To identify Brazilian Wind Tech imports the research used the* **Mercosul Common Nomenclature**, *which is the standard registry used in Brazil to single out import and export goods*.*According to this standard registry, wind tech imports fall under the number* **8502 - Wind-power Generating Sets**.   
+
+**Complete dataset**:
+```{r, include=FALSE}
+#Downloading data on all Brazilian Imports from 1997 to 2024
+url <- "https://balanca.economia.gov.br/balanca/bd/comexstat-bd/mun/IMP_COMPLETA_MUN.zip"
+
+destfile <- "IMP_COMPLETA_MUN.zip"
+
+download.file(url, destfile, mode = "wb")
+
+imp_BR_1997_2024 <- read.table(unz("IMP_COMPLETA_MUN.zip", "IMP_COMPLETA_MUN.csv"), sep = ";", fill = TRUE, encoding = "latin1", header = TRUE, row.names = NULL, stringsAsFactors = FALSE, col.names = c("CO_ANO", "CO_MES", "SH4", "CO_PAIS", "SG_UF_MUN", "CO_MUN", "KG_LIQUIDO", "VL_FOB"))
+
+file.remove("IMP_COMPLETA_MUN.zip")
+```
+
+
+```{r, include=FALSE}
+#creating filter to identify wind tech imports (NCM 850231)
+
+url <- "https://balanca.economia.gov.br/balanca/bd/tabelas/NCM_SH.csv"
+
+destfile <- "NCM_SH.csv"
+download.file(url, destfile, mode = "wb")
+
+NCM_SH_conversion <- read.delim("NCM_SH.csv", sep = ";", fill = TRUE, encoding = "latin1", header = TRUE)
+
+file.remove("NCM_SH.csv")
+
+wind_filter <- NCM_SH_conversion %>% 
+                  filter(CO_SH6==850231) %>% 
+                  select(CO_SH4) %>% 
+                  pull()
+```
+
+```{r, include=FALSE}
+#Country names and codes used to identity from where Brazilian imports come from
+url <- "https://balanca.economia.gov.br/balanca/bd/tabelas/PAIS.csv"
+
+destfile <- "PAIS.csv"
+download.file(url, destfile, mode = "wb")
+
+countries_table <- read.delim("PAIS.csv", sep = ";", fill = TRUE, encoding = "latin1", header = TRUE)
+
+file.remove("PAIS.csv")
+
+EU_filter <- c("Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovakia", "Slovenia", "Spain", "Sweden")
+```
+
+```{r}
+wind_imports_BR <- imp_BR_1997_2024 %>% 
+                      filter(SH4==wind_filter)
+
+wind_imports_BR %>% 
+  left_join(countries_table %>% select(CO_PAIS, NO_PAIS_ING), by="CO_PAIS") %>% 
+  group_by(CO_ANO, NO_PAIS_ING) %>% 
+  summarise(VL_FOB=sum(VL_FOB)) %>% 
+  ungroup() %>% 
+  mutate(Importer=case_when(
+    NO_PAIS_ING %in% EU_filter~"EU",
+    NO_PAIS_ING=="United States"~"United States",
+    NO_PAIS_ING=="China"~"China",
+    TRUE~"Others"
+  )) %>% 
+  group_by(CO_ANO, Importer) %>% 
+  summarise(VL_FOB=sum(VL_FOB)) %>% 
+  ungroup() %>% 
+  group_by(CO_ANO) %>% 
+  mutate(share=round(VL_FOB/sum(VL_FOB)*100, 2)) %>% 
+  rename(Year=CO_ANO,
+         Share_of_Imports=share)
+```
+Source: Ministério do Desenvolvimento, Indústria e Comércio Exterior - MDIC, Comexstat, retrieved 28 August 2024 from [https://balanca.economia.gov.br/balanca/bd/comexstat-bd/mun/IMP_COMPLETA_MUN.zip"](https://balanca.economia.gov.br/balanca/bd/comexstat-bd/mun/IMP_COMPLETA_MUN.zip")
+
+## Table 6 - Brazilian Solar Tech Imports
+
+*To identify Brazilian Wind Tech imports the research used the* **Mercosul Common Nomenclature**, *which is the standard registry used in Brazil to single out import and export goods*.*According to this standard registry, wind tech imports fall under the number* **8541 - Solar-power Generating Sets**.
+
+```{r}
+solar_imports <-  imp_BR_1997_2024 %>% 
+                      filter(SH4==8541)
+
+solar_imports %>% 
+  left_join(countries_table %>% select(CO_PAIS, NO_PAIS_ING), by="CO_PAIS") %>% 
+  group_by(CO_ANO, NO_PAIS_ING) %>% 
+  summarise(VL_FOB=sum(VL_FOB)) %>% 
+  ungroup() %>% 
+  mutate(Importer=case_when(
+    NO_PAIS_ING %in% EU_filter~"EU",
+    NO_PAIS_ING=="United States"~"United States",
+    NO_PAIS_ING=="China"~"China",
+    TRUE~"Others"
+  )) %>% 
+  group_by(CO_ANO, Importer) %>% 
+  summarise(VL_FOB=sum(VL_FOB)) %>% 
+  ungroup() %>% 
+  group_by(CO_ANO) %>% 
+  mutate(share=round(VL_FOB/sum(VL_FOB)*100, 2)) %>% 
+  rename(Year=CO_ANO,
+         Share_of_Imports=share)
+```
+Source: Ministério do Desenvolvimento, Indústria e Comércio Exterior - MDIC, Comexstat, retrieved 28 August 2024 from [https://balanca.economia.gov.br/balanca/bd/comexstat-bd/mun/IMP_COMPLETA_MUN.zip"](https://balanca.economia.gov.br/balanca/bd/comexstat-bd/mun/IMP_COMPLETA_MUN.zip")

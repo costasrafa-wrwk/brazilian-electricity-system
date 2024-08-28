@@ -1,0 +1,31 @@
+SIGLA_USINA;n; owner; owner_info
+ITAIPU;3257873.540467; Brazilian Federal Government; https://www.itaipu.gov.br/
+TUCURUI;2205574.374857; Eletrobras-Eletronorte; https://www.eletronorte.com.br/
+S ANTONIO (STOANT);1040321.521274; Eletrobras; https://santoantonioenergia.com.br/
+BELO MONTE;1006857.898632; Eletrobras-Eletronorte; https://www.norteenergiasa.com.br/investidores
+ITA;853812.128808; Engie Brasil; https://www.engie.com.br/usinas/usina-hidreletrica-ita/
+GOV. BENTO MUNHOZ;738845.611237; Copel-Undisclosed Private Investor; https://copel.com/site/copel-geracao/usinas/usina-governador-bento-munhoz-da-rocha-netto/
+MACHADINHO;710057.875769; Engie Brasil; https://www.engie.com.br/usinas/usina-hidreletrica-machadinho/
+SALTO SANTIAGO;632382.077725; Engie Brasil; https://www.engie.com.br/usinas/usina-hidreletrica-salto-santiago/
+SALTO CAXIAS (GJR);614382.03195; Engie Brasil; https://tractebel-engie.com.br/pt/referencias/usina-hidreletrica-governador-jose-richa-uhe-salto-caxias
+JIRAU;578817.469939; Eletrobas-Engie Brasil; https://www.jirauenergia.com.br/jirau-energia-completa-10-anos-de-operacao-comercial/
+SEGREDO (GNB);536038.470775; Copel-Undisclosed Private Investor; https://www.copel.com/ci/antigas/ci_revista174.pdf
+XINGO;535586.025915; Eletrobras-Chesf; https://www.chesf.com.br/SistemaChesf/Pages/SistemaGeracao/Xingo.aspx
+ILHA SOLTEIRA;524298.203939; CTG-Brasil-Paranapanema-Caixa; https://www.ctgbr.com.br/unidade/uhe-ilha-solteira/
+ITUMBIARA (FURNAS);520448.420078; Eletrobras-Furnas; https://www.furnas.com.br/itumbiara
+SALTO OSORIO;516549.395925; Engie Brasil; https://www.engie.com.br/usinas/usina-hidreletrica-salto-osorio/
+CAMPOS NOVOS;514444.97858; CPFL Energia; https://fusoesaquisicoes.com/acontece-no-setor/cpfl-energia-concluida-aquisicao-da-enercan/
+PORTO PRIMAVERA;506792.038144; Auren Energia-CESP; https://www.cesp.com.br/porto-primavera/
+SAO SIMAO (S COTAS);490372.731356; SPIC; https://www.spicbrasil.com.br/uhe-sao-simao/
+PA 1+2+3+4+AP. SALES;473357.442799; Eletrobras-Chesf; https://www.chesf.com.br/SistemaChesf/Pages/SistemaGeracao/PauloAfonsoI.aspx
+FOZ CHAPECÓ;441599.059665; CPFL Energia; https://www.fozdochapeco.com.br/empresa/
+BARRA GRANDE;405261.63118; Alcoa; https://www.baesa.com.br/
+SERRA DA MESA;399976.106568; Eletrobras-Furnas; https://www.furnas.com.br/subsecao/129/usina-de-serra-da-mesa?culture=pt
+AGUA VERMELHA;382180.988687; AES Brasil; https://www.aesbrasil.com.br/pt-br/press-release/aes-brasil-realiza-teste-anual-de-abertura-de-comportas-da-usina-hidreletrica-agua
+Xingo (ACL);377223.267222; Eletrobras-Chesf; https://www.chesf.com.br/SistemaChesf/Pages/SistemaGeracao/Xingo.aspx
+PA IaIV+A.S. (Chesf);333394.362866; Eletrobras-Chesf; https://www.chesf.com.br/SistemaChesf/Pages/SistemaGeracao/Xingo.aspx
+TELES PIRES;321935.772241; Eletrobras; https://www.uhetelespires.com.br/site/organograma
+JUPIA;312851.667804; CTG-Brasil-Paranapanema-Caixa; https://www.ctgbr.com.br/unidade/uhe-jupia/
+SOBRADINHO;249155.977421; Eletrobras-Chesf;https://www.chesf.com.br/SistemaChesf/Pages/SistemaGeracao/Sobradinho.aspx
+S. ANTONIO EXPANSAO;232422.945488; Eletrobras; https://santoantonioenergia.com.br/
+ITAPARICA;225069.416921; Eletrobras-Chesf;https://www.chesf.com.br/SistemaChesf/Pages/SistemaGeracao/LuizGonzaga.aspx
