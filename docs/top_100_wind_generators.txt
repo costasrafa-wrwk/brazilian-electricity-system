@@ -1,58 +1,58 @@
 SIGLA_USINA,n, owner, owner_info
-V DE SÃO JANUÁRIO 17,32932.518033, Casa dos Ventos, https://casadosventos.com.br/en/ativos/folha-larga-sul
-VENTOS DE SÃO JANUÁR,31745.466572, Casa dos Ventos, https://casadosventos.com.br/en/ativos/folha-larga-sul
-V DE SÃO JANUÁRIO 16,30664.9576, Casa dos Ventos, https://casadosventos.com.br/en/ativos/folha-larga-sul
-V DE SÃO JANUÁRIO 19,30470.452993, Casa dos Ventos, https://casadosventos.com.br/en/ativos/folha-larga-sul
-VENTOS DE SANTA MART,27530.859703, Casa dos Ventos, https://casadosventos.com.br/en/ativos/rio-do-vento
-V DE SÃO JANUÁRIO 18,27334.082891000002, Casa dos Ventos, https://casadosventos.com.br/en/ativos/folha-larga-sul
-VENTOS STA MARTINA11,26576.612302, Casa dos Ventos, https://casadosventos.com.br/en/ativos/rio-do-vento
+V DE SÃO JANUÁRIO 17,32932.518033, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/folha-larga-sul
+VENTOS DE SÃO JANUÁR,31745.466572, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/folha-larga-sul
+V DE SÃO JANUÁRIO 16,30664.9576, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/folha-larga-sul
+V DE SÃO JANUÁRIO 19,30470.452993, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/folha-larga-sul
+VENTOS DE SANTA MART,27530.859703, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/rio-do-vento
+V DE SÃO JANUÁRIO 18,27334.082891000002, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/folha-larga-sul
+VENTOS STA MARTINA11,26576.612302, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/rio-do-vento
 SAO CIRIACO,25827.685124, Auren Energia-Votorantim S.A., https://ri.aurenenergia.com.br/esg/estrutura-acionaria/
-VENTOS STA MARTINA09,25808.556143, Casa dos Ventos, https://casadosventos.com.br/en/ativos/rio-do-vento
-VENTOS STA MARTINA10,25754.924424, Casa dos Ventos, https://casadosventos.com.br/en/ativos/rio-do-vento
+VENTOS STA MARTINA09,25808.556143, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/rio-do-vento
+VENTOS STA MARTINA10,25754.924424, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/rio-do-vento
 SANTA MARTA 14,25601.499259, ECBRASIL,
-VENTOS STA MARTINA12,25467.045898, Casa dos Ventos, https://casadosventos.com.br/en/ativos/rio-do-vento
+VENTOS STA MARTINA12,25467.045898, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/rio-do-vento
 EOL Campo Largo XII,24582.280108, Engie Brasil, https://www.engie.com.br/investidores/companhia-engie-brasil-energia/
 Ventos de SRoque 01,24357.484284, Enel, https://www.enelgreenpower.com/pt/nossos-projetos
 SAO CRISPIM I,24187.231883, Auren Energia-Votorantim S.A., https://ri.aurenenergia.com.br/esg/estrutura-acionaria/
 Aroeira 03,24133.901691, Enel, https://www.avsibrasil.org.br/projeto/complexo-eolico-aroeira/
-SANTA MARTINA 13,24110.991417, Casa dos Ventos, https://casadosventos.com.br/en/ativos/rio-do-vento
+SANTA MARTINA 13,24110.991417, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/rio-do-vento
 EOL Aroeira 01,23997.127127, Enel, https://www.avsibrasil.org.br/projeto/complexo-eolico-aroeira/
-VSantaLuzia13,23929.691473, Casa dos Ventos, https://casadosventos.com.br/en/ativos/umari
+VSantaLuzia13,23929.691473, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/umari
 AURA QUEIMADA NOVA 2,23715.62391, Enel, https://www.enelgreenpower.com/pt/nossos-projetos/highlights/parque-eolico-lagoa-dos-ventos
 Ventos de Sta Espe21,23501.878859,,
-V DE SANTA LEIA 03,23299.524714, Casa dos Ventos, https://www.thewindpower.net/owner_es_3754_casa-dos-ventos.php
+V DE SANTA LEIA 03,23299.524714, Casa dos Ventos-TotalEnergies, https://www.thewindpower.net/owner_es_3754_casa-dos-ventos.php
 MONTE VERDE I,23125.445781, EDP Renováveis, https://www.edp.com/pt-pt/historias-edp/brazil-maior-complexo-eolico-grupo-edp
 SAO BERNARDO,23067.645789, Auren Energia-Votorantim S.A., https://ri.aurenenergia.com.br/esg/estrutura-acionaria/
 SANTO ANTERO,23030.252285, Auren Energia-Votorantim S.A., https://ri.aurenenergia.com.br/esg/estrutura-acionaria/
-VSantaLuzia12,22867.785379, Casa dos Ventos, https://casadosventos.com.br/en/ativos/umari
+VSantaLuzia12,22867.785379, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/umari
 EOL Aroeira 02,22723.591969, Enel, https://www.avsibrasil.org.br/projeto/complexo-eolico-aroeira/
-V DE SANTA LEIA 04,22679.607176, , Casa dos Ventos, https://www.thewindpower.net/owner_es_3754_casa-dos-ventos.php
-Ventos de Santo Antô,22569.426929, Casa dos Ventos, https://casadosventos.com.br/en/relatorios-ambientais
+V DE SANTA LEIA 04,22679.607176, , Casa dos Ventos-TotalEnergies, https://www.thewindpower.net/owner_es_3754_casa-dos-ventos.php
+Ventos de Santo Antô,22569.426929, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/relatorios-ambientais
 OITIS 7,22320.80901, Iberdrola, https://www.iberdrola.com/quem-somos/nossa-atividade/energia-eolica-onshore/complexo-eolico-terrestre-oitis
 V STA ANGELA 17,22229.426491, Enel, https://www.enelgreenpower.com/pt/nossos-projetos/highlights/parque-eolico-lagoa-dos-ventos
 EOL Serra do Seridó,22157.939192, EDF-Renewables, https://edf-re.com.br/nossos-projetos/eolicos/
 VSAOROQUE953271,22127.220142,  Enel, https://www.enelgreenpower.com/pt/nossos-projetos
-SAO JANUARARIO 23,22121.287444, Casa dos Ventos, https://casadosventos.com.br/en/ativos/folha-larga-sul
+SAO JANUARARIO 23,22121.287444, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/folha-larga-sul
 STA ALEXANDRINA,21919.669516, Auren Energia-Votorantim S.A., https://ri.aurenenergia.com.br/esg/estrutura-acionaria/
 Enel Green Power 02,21830.148125, Enel, 
 V STA ESPERANCA 15,21663.984505, Enel, https://www.gem.wiki/Ventos_de_Santa_Esperan%C3%A7a_wind_farm
-V DE SANTA LEIA 12,21267.868626, Casa dos Ventos, https://www.thewindpower.net/owner_es_3754_casa-dos-ventos.php
+V DE SANTA LEIA 12,21267.868626, Casa dos Ventos-TotalEnergies, https://www.thewindpower.net/owner_es_3754_casa-dos-ventos.php
 MONTE VERDE II,21228.613285, EDP Renováveis, https://www.edp.com/pt-pt/historias-edp/brazil-maior-complexo-eolico-grupo-edp
 VSROQUE04953732,20956.037287, Enel, https://www.enelgreenpower.com/pt/nossos-projetos
 V STA ANGELA 09,20950.641247, Enel, https://www.enelgreenpower.com/pt/nossos-projetos/highlights/parque-eolico-lagoa-dos-ventos
-VENTOS DE SANTA LEIA,20917.265885, Casa dos Ventos, https://www.thewindpower.net/owner_es_3754_casa-dos-ventos.php
+VENTOS DE SANTA LEIA,20917.265885, Casa dos Ventos-TotalEnergies, https://www.thewindpower.net/owner_es_3754_casa-dos-ventos.php
 Aroeira 04,20857.852674, Enel, https://www.avsibrasil.org.br/projeto/complexo-eolico-aroeira/
-V DE SANTA LEIA 01,20743.383906, Casa dos Ventos, https://www.thewindpower.net/owner_es_3754_casa-dos-ventos.php
+V DE SANTA LEIA 01,20743.383906, Casa dos Ventos-TotalEnergies, https://www.thewindpower.net/owner_es_3754_casa-dos-ventos.php
 EOL Assuruá 5 IV,20740.863742, Engie Brasil, https://www.engie.com.br/atividades/renovaveis/usinas-em-construcao/conjunto-eolico-serra-do-assurua/
 EOL Assuruá 5 II,20646.212522, Engie Brasil, https://www.engie.com.br/atividades/renovaveis/usinas-em-construcao/conjunto-eolico-serra-do-assurua/
 Baraúnas XV Energéti,20601.116619, Brennand Energia, https://www.gem.wiki/Bara%C3%BAnas_15_wind_farm
-V DE SANTA LEIA 05,20526.842138, Casa dos Ventos, https://www.thewindpower.net/owner_es_3754_casa-dos-ventos.php
-V DE SANTA LEIA 13,20413.735194, Casa dos Ventos, https://www.thewindpower.net/owner_es_3754_casa-dos-ventos.php
-V DE SANTA LEIA 02,20289.741553, Casa dos Ventos, https://www.thewindpower.net/owner_es_3754_casa-dos-ventos.php
+V DE SANTA LEIA 05,20526.842138, Casa dos Ventos-TotalEnergies, https://www.thewindpower.net/owner_es_3754_casa-dos-ventos.php
+V DE SANTA LEIA 13,20413.735194, Casa dos Ventos-TotalEnergies, https://www.thewindpower.net/owner_es_3754_casa-dos-ventos.php
+V DE SANTA LEIA 02,20289.741553, Casa dos Ventos-TotalEnergies, https://www.thewindpower.net/owner_es_3754_casa-dos-ventos.php
 V STA ANGELA 10,20265.21404, Enel, https://www.enelgreenpower.com/pt/nossos-projetos/highlights/parque-eolico-lagoa-dos-ventos
 V STA ESPERANCA 17,20231.835177, Enel, https://www.gem.wiki/Ventos_de_Santa_Esperan%C3%A7a_wind_farm
 V STA ANGELA 11,20227.084199, Enel, https://www.enelgreenpower.com/pt/nossos-projetos/highlights/parque-eolico-lagoa-dos-ventos
-VENTOS JANUARARIO 21,20173.790142, Casa dos Ventos, https://casadosventos.com.br/en/ativos/folha-larga-sul
+VENTOS JANUARARIO 21,20173.790142, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/folha-larga-sul
 Oitis 1,20102.500887, Iberdrola, https://www.iberdrola.com/quem-somos/nossa-atividade/energia-eolica-onshore/complexo-eolico-terrestre-oitis
 SANTO ALDERICO,19946.525066, Auren Energia-Votorantim S.A., https://ri.aurenenergia.com.br/esg/estrutura-acionaria/
 OITIS 3,19750.150709, Iberdrola, https://www.iberdrola.com/quem-somos/nossa-atividade/energia-eolica-onshore/complexo-eolico-terrestre-oitis
@@ -60,19 +60,19 @@ OITIS 22,19687.664444000002, Iberdrola, https://www.iberdrola.com/quem-somos/nos
 SERRA DO SERIDÓ IX,19592.229032, EDF-Renewables, https://edf-re.com.br/nossos-projetos/eolicos/
 OITIS 6,19541.368494, Iberdrola, https://www.iberdrola.com/quem-somos/nossa-atividade/energia-eolica-onshore/complexo-eolico-terrestre-oitis
 OITIS 5,19503.395567, Iberdrola, https://www.iberdrola.com/quem-somos/nossa-atividade/energia-eolica-onshore/complexo-eolico-terrestre-oitis
-Ventos de São Jan22,19404.762361, Casa dos Ventos, https://casadosventos.com.br/en/ativos/folha-larga-sul
-SAO JANUARIO 14,19370.439943, Casa dos Ventos, https://casadosventos.com.br/en/ativos/folha-larga-sul
-V Santa Luzia 11,19186.772016, Casa dos Ventos, https://casadosventos.com.br/en/ativos/umari
+Ventos de São Jan22,19404.762361, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/folha-larga-sul
+SAO JANUARIO 14,19370.439943, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/folha-larga-sul
+V Santa Luzia 11,19186.772016, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/umari
 V STA ANGELA 14,19110.865492, Enel, https://www.enelgreenpower.com/pt/nossos-projetos/highlights/parque-eolico-lagoa-dos-ventos
-VENTOS JANUARIO 20,19012.205378, Casa dos Ventos, https://casadosventos.com.br/en/ativos/folha-larga-sul
+VENTOS JANUARIO 20,19012.205378, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/folha-larga-sul
 EOL Campo Largo XIII,18833.145719, Engie Brasil, https://www.engie.com.br/investidores/companhia-engie-brasil-energia/
 Serra do Seridó XII,18832.651733, EDF-Renewables, https://edf-re.com.br/nossos-projetos/eolicos/
 V STA ANGELA 15,18786.776657, Enel, https://www.enelgreenpower.com/pt/nossos-projetos/highlights/parque-eolico-lagoa-dos-ventos
-SAO JANUARIO 13,18724.238508, Casa dos Ventos, https://casadosventos.com.br/en/ativos/folha-larga-sul
+SAO JANUARIO 13,18724.238508, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/folha-larga-sul
 EGP Fonte d Ventos 3,18684.607438, Enel, https://www.enelenergialivre.com.br/conteudos/enel-green-power-anuncia-operacao-comercial-do-parque-eolico-fontes-dos-ventos-ii-em-pernambuco/
 CAETITE D,18631.445638, Iberdrola, https://www.neoenergia.com/energia-eolica/caetite
 EOL Assuruá 4 V,18592.368874, Engie Brasil, https://www.engie.com.br/atividades/renovaveis/usinas-em-construcao/conjunto-eolico-serra-do-assurua/
-EOL Ventos de S Jan5,18460.902582, Casa dos Ventos, https://casadosventos.com.br/en/ativos/folha-larga-sul
+EOL Ventos de S Jan5,18460.902582, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/folha-larga-sul
 EOL Assuruá 4 IV,18449.927876, Engie Brasil, https://www.engie.com.br/atividades/renovaveis/usinas-em-construcao/conjunto-eolico-serra-do-assurua/
 Oitis 8,18334.194621, Iberdrola, https://www.iberdrola.com/quem-somos/nossa-atividade/energia-eolica-onshore/complexo-eolico-terrestre-oitis
 Ventos São Roque 03,18318.402489, Enel, https://www.enelgreenpower.com/pt/nossos-projetos
@@ -94,7 +94,7 @@ V STA ANGELA 05,17423.843054, Enel, https://www.enelgreenpower.com/pt/nossos-pro
 EOL Campo Largo XXII,17307.795778, Engie Brasil, https://www.engie.com.br/investidores/companhia-engie-brasil-energia/
 V STA ANGELA 06,17293.814103, Enel, https://www.enelgreenpower.com/pt/nossos-projetos/highlights/parque-eolico-lagoa-dos-ventos
 Sao Roque 13,17266.722514, Enel, https://www.enelgreenpower.com/pt/nossos-projetos
-Santa Luzia 03,17237.532725, Casa dos Ventos, https://casadosventos.com.br/en/ativos/umari
+Santa Luzia 03,17237.532725, Casa dos Ventos-TotalEnergies, https://casadosventos.com.br/en/ativos/umari
 VSROQUE11 953233,17168.711691, Enel, https://www.enelgreenpower.com/pt/nossos-projetos
 EOL Assuruá 4 I,17155.808979, Engie Brasil, https://www.engie.com.br/atividades/renovaveis/usinas-em-construcao/conjunto-eolico-serra-do-assurua/
 VENTOS SAO CAIO,17127.582125, Auren Energia-Votorantim S.A., https://ri.aurenenergia.com.br/esg/estrutura-acionaria/

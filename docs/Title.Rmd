@@ -1,5 +1,5 @@
 ---
-title: "Annex - The Brazilian Electric System Green Transition seen from a Dependency perspective v1.0"
+title: "Annex - The Brazilian Electric System Green Transition seen from a Dependency perspective v1.1"
 author: "Rafael da Costa"
 date: "2024-08-28"
 output: 
@@ -41,7 +41,7 @@ theme_set(theme_bw())
 
 This Research Briefing Annex contains all data used in the text **The Brazilian Electric System Green Transition seen from a Dependency perspective** presented to the organisation of the **Workshop on Green energy transitions and global disruption: The (un)just transition to Net Zero**, to be held at the University of Manchester, UK on 11-13 September 2024.
 
-This version contains only raw datasets. An updated version will present calculations used in the paper.
+This version contains only raw datasets. Some calculations used in the paper are still missing.
 
 Author's contact: [Rafael.Da-Silva-Da-costa@warwick.ac.uk](mailto:Rafael.Da-Silva-Da-costa@warwick.ac.uk)
 
@@ -51,9 +51,9 @@ Author's contact: [Rafael.Da-Silva-Da-costa@warwick.ac.uk](mailto:Rafael.Da-Silv
 
 ## Table 1 - GDP, Total Population and Energy Distribution Company per Municipality:
 
-* *This dataset contains more observations (6985) than there are Brazilian municipalities (5572)*. Since more than one energy distribution company serves certain municipalities, they generate more than one observation.
+* *This dataset contains more observations (6857) than there are Brazilian municipalities (5572)*. Since more than one energy distribution company serves certain municipalities, they generate more than one observation.
 
-* *The intention was to identify the energy distribution's company controller to highlight the concentration existing in the Brazilian Electricity market*.
+* *The intention was to identify the energy distribution's controller to highlight the concentration existing in the Brazilian Electricity market*.
 
 ```{r, include=FALSE}
 
@@ -147,7 +147,8 @@ distributors_mun <- distributors_mun %>%
            Distribution_Company,
            Company_Controller,
            Population,
-           GDP))
+           GDP)) %>% 
+  drop_na()
 ```
 
 **Complete dataset**:
@@ -156,7 +157,69 @@ distributors_mun
 ```
 **Sources**: Instituto Brasileiro de Geografia e Estatística - IBGE, Municipalities Gross Domestic Product, retrieved 28 August 2024 from [https://ftp.ibge.gov.br/Pib_Municipios/2021/base/base_de_dados_2010_2021_xlsx.zip](https://ftp.ibge.gov.br/Pib_Municipios/2021/base/base_de_dados_2010_2021_xlsx.zip); Agência Nacional de Energia Elétrica - Aneel, Reports Portal, retrieved 28 August 2024 from [https://www2.aneel.gov.br/relatoriosrig/(S(gcwd12tr2undw15hdx3vkbjv))/relatorio.aspx?folder=sfe&report=DistribuidoradecadaMunicipio](https://www2.aneel.gov.br/relatoriosrig/(S(gcwd12tr2undw15hdx3vkbjv))/relatorio.aspx?folder=sfe&report=DistribuidoradecadaMunicipio)
 
-### Table 2 - Brazilian Energy Generation Plants
+### Image 1 - Share of GDP by distribution controller
+
+```{r}
+brazilian_municipalities_total_gdp <- gdp_mun %>% 
+                                        summarise(sum(GDP)) %>% 
+                                        pull()
+
+distributors_mun %>% 
+  group_by(Company_Controller) %>% 
+  filter(Company_Controller!="Unidentified") %>% 
+  summarise(GDP=sum(GDP)) %>% 
+  mutate(share=round(GDP/brazilian_municipalities_total_gdp*100, 2)) %>% 
+  ungroup() %>% 
+  mutate(Company_Controller=factor(Company_Controller,
+                                   levels=c("Enel",
+                                            "Iberdrola",
+                                            "State Grid",
+                                            "State of Minas Gerais",
+                                            "Equatorial",
+                                            "Energisa",
+                                            "State of Paraná",
+                                            "EDP"))) %>%
+  ggplot()+
+  geom_col(aes(x=Company_Controller, y=share, fill = Company_Controller),
+           alpha=0.75)+
+  geom_text(aes(x=Company_Controller, y=share, label = share), vjust=2)+
+  labs(y="% of GDP", x="")+
+  scale_fill_brewer(palette = "Spectral")+
+  theme(legend.position = "none", axis.text.x = element_text(angle = 45),
+        panel.grid.major.x = element_blank(), panel.grid.minor = element_blank())
+```
+### Image 2 - Share of Brazilian Population by distribution controller
+
+```{r}
+total_brazilian_municipalities_pop <- pop_mun %>% 
+                                        summarise(sum(populacao)) %>% 
+                                        pull()
+
+distributors_mun %>% 
+  group_by(Company_Controller) %>% 
+  filter(Company_Controller!="Unidentified") %>% 
+  summarise(Population=sum(Population)) %>% 
+  mutate(share=round(Population/total_brazilian_municipalities_pop*100, 2)) %>% 
+  ungroup() %>% 
+  mutate(Company_Controller=factor(Company_Controller,
+                                   levels=c("Iberdrola",
+                                            "Enel",
+                                            "Equatorial",
+                                            "State of Minas Gerais",
+                                            "Energisa",
+                                            "State Grid",
+                                            "State of Paraná",
+                                            "EDP"))) %>%
+  ggplot()+
+  geom_col(aes(x=Company_Controller, y=share, fill = Company_Controller),
+           alpha=0.75)+
+  geom_text(aes(x=Company_Controller, y=share, label = share), vjust=2)+
+  labs(y="% of Population", x="")+
+  scale_fill_brewer(palette = "Spectral")+
+  theme(legend.position = "none", axis.text.x = element_text(angle = 45),
+        panel.grid.major.x = element_blank(), panel.grid.minor = element_blank())
+```
+## Table 2 - Brazilian Energy Generation Plants
 
 ```{r, include=FALSE}
 #fetching latest energy generation plants Data
@@ -206,7 +269,40 @@ file.remove("geracao_horaria_usina_202406.csv.gz")
 ```{r}
 plant_generation_data
 ```
-**Sources**: Câmara de Comercialização de Energia Elétrica - CCEE, retrieved 28 August 2024 from [https://pda-download.ccee.org.br/7gQCl3h9Ru6ORLv5SyddeA/content](https://pda-download.ccee.org.br/7gQCl3h9Ru6ORLv5SyddeA/content)
+**Source**: Câmara de Comercialização de Energia Elétrica - CCEE, retrieved 28 August 2024 from [https://pda-download.ccee.org.br/7gQCl3h9Ru6ORLv5SyddeA/content](https://pda-download.ccee.org.br/7gQCl3h9Ru6ORLv5SyddeA/content)
+
+### Image 3 - MW genereted by Brazilian Electricity Power Plants in June, 2024, by energy source
+
+```{r}
+plant_generation_data %>% 
+  group_by(Type_Energy_Source) %>% 
+  summarise(MW_Generated_Monthly= round(sum(MW_Generated_Monthly), 2)) %>% 
+  ungroup() %>% 
+  mutate(Type_Energy_Source=factor(Type_Energy_Source, levels=c(
+    "Hydro",
+    "Wind",
+    "Biomass",
+    "Solar",
+    "Nuclear",
+    "Gas",
+    "Coal",
+    "Oil and Gas",
+    "Oil",
+    "Others"
+  ))) %>% 
+  ggplot()+
+  geom_col(aes(x=Type_Energy_Source, y=MW_Generated_Monthly, 
+               fill = Type_Energy_Source),
+           alpha=0.75)+
+  labs(x="")+
+  scale_fill_brewer(palette = "Spectral")+
+  theme(legend.position = "none", axis.text.x = element_text(angle = 45),
+        panel.grid.major.x = element_blank(), panel.grid.minor = element_blank())+
+  scale_y_continuous("MW generated",
+    labels = label_number(suffix = "M", scale = 1e-6)
+  )
+```
+
 
 *After identifying the 90th percentile of energy generation plants, the research looked for the companies owning them*. The result of this investigation is as follows:
 ```{r}
